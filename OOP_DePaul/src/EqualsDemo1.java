@@ -26,10 +26,13 @@ public class EqualsDemo1 {
 		
 		StringObject1 x = new StringObject1("hello"); 
 		StringObject1 y = new StringObject1("hello"); 
+		StringObject1 z = y;
 		
 		comparisonResult = x == y; 
 		System.out.println(comparisonResult); 
 		comparisonResult = x.equals(y); 	
+		System.out.println(comparisonResult); 
+		comparisonResult = y.equals(z);
 		System.out.println(comparisonResult); 
 	} 
 } 
