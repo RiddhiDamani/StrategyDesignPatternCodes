@@ -9,6 +9,25 @@ class StringObject1 {
 	public String toString() { 
 		return str; 
 	} 
+	
+	/*
+	 * If you don’t override .equals() in a new class, it will inherit 
+	 * from the parent class. In Java, the parent class is implicitly Object 
+	 * if no base class is otherwise specified.
+	 * The default implementation of .equals() in Object is the same as ==, 
+	 * which is why using .equals() in the previous example didn’t make a difference.
+	 */
+	// Overriding .equals here 
+	public boolean equals(Object that) {
+		if(!(that instanceof StringObject1)) {
+			return false;
+		}
+		else {
+			StringObject1 thatSO = (StringObject1) that;
+			return thatSO.str == this.str;   
+		}
+	 
+	}
 } 
 
 
@@ -30,7 +49,7 @@ public class EqualsDemo1 {
 		
 		comparisonResult = x == y; 
 		System.out.println(comparisonResult); 
-		comparisonResult = x.equals(y); 	
+		comparisonResult = x.equals(y); 	    // Different in result happens here - of adding the above equals method 
 		System.out.println(comparisonResult); 
 		comparisonResult = y.equals(z);
 		System.out.println(comparisonResult); 
